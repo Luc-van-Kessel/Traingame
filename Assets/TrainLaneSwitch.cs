@@ -23,16 +23,18 @@ public class TrainLaneSwitch : MonoBehaviour, ITrain
 
     void HandleInput()
     {
-        if (!canSwitch) return; // ❌ block input if not allowed
-
+        if (!canSwitch) return;
+        Debug.Log("In switch zone, waiting for input...");
         if (Input.GetKeyDown(KeyCode.D))
         {
+            Debug.Log("D key pressed, attempting to switch right.");
             SwitchRight();
             canSwitch = false; // only once per switch zone
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
+            Debug.Log("D key pressed, attempting to switch right.");
             SwitchLeft();
             canSwitch = false;
         }
