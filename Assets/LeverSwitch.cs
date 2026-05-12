@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class LeverSwitch : MonoBehaviour
 {
+
+    public GameObject SwitchIndicator;
     private void OnTriggerEnter(Collider other)
     {
         ITrain train = other.GetComponent<ITrain>();
+        SwitchIndicator.SetActive(true); // Hide the switch indicator
 
         if (train != null)
         {
@@ -13,8 +16,9 @@ public class LeverSwitch : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        SwitchIndicator.SetActive(false); // Hide the switch indicator
     }
+
 }
